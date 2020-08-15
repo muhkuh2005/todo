@@ -15,7 +15,8 @@ jobs:
           version: 12.x
       - run: |
           npm ci
-          npm install --save gh-pages
-          ./node_modules/.bin/gh-pages -d build
+          ls -lhap ./
+#          npm install --save gh-pages
+#          ./node_modules/.bin/gh-pages -d build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
