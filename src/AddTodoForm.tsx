@@ -67,7 +67,7 @@ export const AddTodoForm: React.FC<Props> = ({addTodo, todoLists}) => {
                 }
                 }/>
             <FormControl variant="filled" className={classes.formControl}>
-                <InputLabel htmlFor="filled-age-native-simple">Age</InputLabel>
+                <InputLabel htmlFor="project">Project</InputLabel>
                 <Select
                     native
                     value={project}
@@ -90,6 +90,7 @@ export const AddTodoForm: React.FC<Props> = ({addTodo, todoLists}) => {
                 startIcon={<AddIcon/>}
                 type="submit"
                 size="large"
+                disabled={ (!parseInt(project) || !text.length) }
                 onClick={addTodoItem}
             >
                 Add Todo

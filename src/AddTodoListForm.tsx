@@ -66,6 +66,7 @@ export const AddTodoListForm: React.FC<Props> = ({addTodoList}) => {
                 startIcon={<AddIcon/>}
                 type="submit"
                 size="large"
+                disabled={!text}
                 onClick={addList}
             >
                 Add List
