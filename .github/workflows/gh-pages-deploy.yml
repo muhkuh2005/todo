@@ -19,8 +19,10 @@ jobs:
         run: npm ci
 
       - name: Run deploy script
-        uses: gh-pages@^3.1.0
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh-pages -d build
+          BASE_BRANCH: master
+          BRANCH: gh-pages
+          FOLDER: build
+          CLEAN: true
+          SSH: true # SSH must be set to true so the deploy action knows which protocol to deploy with.
