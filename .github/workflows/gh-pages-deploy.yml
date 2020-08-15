@@ -19,6 +19,6 @@ jobs:
           npm install --save gh-pages
           git config user.email "github@sweetappleacr.es"
           git config user.name "Github Action"
-          ./node_modules/.bin/gh-pages -d build -r https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/${{ github.repository }}.git
+          ./node_modules/.bin/gh-pages -d build -r https://${{ secrets.OAUTH_PAT }}:x-oauth-basic@github.com/${{ github.repository }}.git
         env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
