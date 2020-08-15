@@ -46,6 +46,10 @@ export const AddTodoForm: React.FC<Props> = ({addTodo, todoLists}) => {
         setProject(e.target.value);
     }
 
+    if (todoLists.length === 0) {
+        return (<></>);
+    }
+
     return (
         <form>
             <TextField
