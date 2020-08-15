@@ -9,24 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js for use with actions
-        uses: actions/setup-node@v1.1.0
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1.1.0
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           version:  12.x
-      - name: Checkout branch
-        uses: actions/checkout@v2
-        env:
-          GIT_TRACE: 1
-          GIT_CURL_VERBOSE: 1
-
-      - name: Clean install dependencies
-        run: npm ci
-
-      - name: Run deploy script
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
           SSH: true # SSH must be set to true so the deploy action knows which protocol to deploy with.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm ci
+      - run: gh-pages -d build
