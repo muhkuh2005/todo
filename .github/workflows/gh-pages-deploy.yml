@@ -17,6 +17,8 @@ jobs:
           npm ci
           npm run build
           npm install --save gh-pages
+          git config user.email "github@sweetappleacr.es
+          git config user.name "Github Action"
           ./node_modules/.bin/gh-pages -d build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
