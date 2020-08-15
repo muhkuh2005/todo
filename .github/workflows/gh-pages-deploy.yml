@@ -21,4 +21,4 @@ jobs:
           git config user.name "Github Action"
           ./node_modules/.bin/gh-pages -d build
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
